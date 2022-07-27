@@ -3,8 +3,8 @@ import random
 from statistics import mean
 
 from django.core.mail import EmailMessage
-
 from reviews.models import Review
+
 from api_yamdb.settings import ADMIN_EMAIL
 
 
@@ -32,5 +32,4 @@ def send_confirmation_code(confirmation_code, email):
 def calculate_raiting(title_id):
     raiting_for_title = Review.objects.filter(title_id=title_id).values_list(
         'score', flat=True)
-    raiting_for_title = int(round(mean(raiting_for_title), 0))
-    return raiting_for_title
+    return int(round(mean(raiting_for_title), 0))
