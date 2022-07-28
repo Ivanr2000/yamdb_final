@@ -1,7 +1,10 @@
 # .github/workflows/**yamdb_workflow.yml**
 name: Api_yamdb workflow
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   tests:
