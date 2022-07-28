@@ -49,6 +49,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
+    on:
+      push:
+        branches:
+          - master
     steps:
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
